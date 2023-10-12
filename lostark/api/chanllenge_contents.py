@@ -102,7 +102,7 @@ def make_abyss_box(image, name):
     crop_x, crop_y = 0, abyss_icon_size[1] - h - margin * 2
     crop_w, crop_h = int(abyss_icon_size[0] / 2), h + margin * 2
 
-    bg = get_bg(crop_w, crop_h, background_color, 1)
+    bg = get_bg(crop_w, crop_h, background_color, 255)
     crop_bg = img.crop((crop_x, crop_y, crop_x + crop_w, crop_y + crop_h))
 
     crop_bg = Image.blend(crop_bg, bg, 0.6)
@@ -157,6 +157,9 @@ def make_guardian_box(image, name):
         urllib.request.urlretrieve(image, f"{path}/data/{name}.png")
         img = get_image(name)
 
+    bg = get_bg(guardian_icon_size[0], guardian_icon_size[1], background_color, 255)
+    img = Image.alpha_composite(bg, img)
+
     # name
     drawable_image = ImageDraw.Draw(img)
     w, h = drawable_image.textsize(name, font=guardian_font)
@@ -164,7 +167,7 @@ def make_guardian_box(image, name):
     crop_x, crop_y = 0, guardian_icon_size[1] - h - margin * 2
     crop_w, crop_h = int(guardian_icon_size[0] / 2), h + margin * 2
 
-    bg = get_bg(crop_w, crop_h, background_color, 1)
+    bg = get_bg(crop_w, crop_h, background_color, 255)
     crop_bg = img.crop((crop_x, crop_y, crop_x + crop_w, crop_y + crop_h))
 
     crop_bg = Image.blend(crop_bg, bg, 0.6)
