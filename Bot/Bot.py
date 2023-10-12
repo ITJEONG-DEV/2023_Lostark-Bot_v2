@@ -6,7 +6,7 @@ import os
 import tweepy
 
 from util import read_json
-from lostark import get_adventure_island
+from lostark import get_adventure_island, get_weekly_challenge_contents
 
 
 class TwitterBot:
@@ -32,10 +32,10 @@ class TwitterBot:
             now = datetime.datetime.now()
 
             if now.hour == 8 and now.minute == 0 and now.second == 0:
-                self.upload_infoes(now.weekday())
+                self.upload_infoes()
 
     def test(self):
-        self.upload_infoes(2)
+        self.upload_infoes()
 
     def get_client(self):
         client = tweepy.Client(
@@ -63,7 +63,7 @@ class TwitterBot:
         return self.daily_message[day]
 
     def get_weekly_contents_message(self):
-        media = None
+        media = get_weekly_challenge_contents("Bearer " + self.lostark["api_key"])
         message = "주간 도전 컨텐츠 안내>"
 
         return media, message
@@ -73,11 +73,14 @@ class TwitterBot:
 
         return media
 
-    def upload_infoes(self, day):
+    def upload_infoes(self):
+        now = datetime.datetime.now()
+        day = now.weekday()
+
         client = self.get_client()
 
         # 일간 정보
-        message = self.get_daily_contents_message(day) + "\n\n등장하는 모험섬 정보>"
+        message = now.strftime('%Y-%m-%d') + self.get_daily_contents_message(day) + "\n\n등장하는 모험섬 정보>"
         media = self.get_adventure_island_infoes()
 
         response = self.post_with_image(client, message, media, None)
