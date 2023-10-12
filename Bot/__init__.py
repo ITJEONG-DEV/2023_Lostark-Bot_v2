@@ -1,1 +1,1 @@
-from bot import TwitterBot
+from .Bot import TwitterBot
