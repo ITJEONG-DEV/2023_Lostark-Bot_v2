@@ -37,18 +37,14 @@ class TwitterBot:
     def test(self):
         self.upload_infoes(2)
 
-    def get_api(self):
-        auth = tweepy.OAuthHandler(
+    def get_client(self):
+        client = tweepy.Client(
             consumer_key=self.data["api_key"],
-            consumer_secret=self.data["api_key_secret"]
+            consumer_secret=self.data["api_key_secret"],
+            access_token=self.data["access_token"],
+            access_token_secret=self.data["access_token_secret"]
         )
-
-        auth.set_access_token(
-            key=self.data["access_token"],
-            secret=self.data["access_token_secret"]
-        )
-
-        return tweepy.API(auth)
+        return client
 
     def get_daily_contents_message(self, day):
         return self.daily_message[day]
@@ -65,23 +61,28 @@ class TwitterBot:
         return media
 
     def upload_infoes(self, day):
-        api = self.get_api()
+        client = self.get_client()
 
         # 일간 정보
         message = self.get_daily_contents_message(day) + "\n\n등장하는 모험섬 정보>"
         media = self.get_adventure_island_infoes()
 
-        status = self.post_with_image(api, message, media, None)
+        response = self.post_with_image(client, message, media, None)
 
         # 수요일이면 추가의 정보를 업로드함
         if day == 2:
             media, message = self.get_weekly_contents_message()
-            _ = self.post_with_image(api, message, media, status)
+            _ = self.post_with_image(client, message, media, response)
 
-    def post_with_image(self, api, message, image_path, reply_id=None):
-        media = api.media_upload(image_path)
+    def post_with_image(self, client, message, image_path, reply_id=None):
+        media = client.media_upload(image_path)
 
-        status = api.update_status(status=message, media_ids=[media.media_id], in_reply_to_status_id=reply_id)
+        response = client.create_tweet(
+            text=message,
+            media_ids=[media.media_id],
+            in_reply_to_tweet_id=reply_id
+        )
+
         print(f"다음의 내용을 트윗합니다.\n{message}, {media.media_id}")
 
-        return status
+        return response
