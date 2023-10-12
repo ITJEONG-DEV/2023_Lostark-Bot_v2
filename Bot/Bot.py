@@ -34,6 +34,16 @@ class TwitterBot:
             if now.hour == 8 and now.minute == 0 and now.second == 0:
                 self.upload_infoes()
 
+    def test_run(self):
+        while True:
+            time.sleep(1)
+
+            now = datetime.datetime.now()
+
+            if now.hour == 3 and now.minute == 0 and now.second == 0:
+                self.upload_infoes()
+                return
+
     def test(self):
         self.upload_infoes(test=True)
 
