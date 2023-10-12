@@ -6,7 +6,7 @@ import os
 import tweepy
 
 from util import read_json
-from lostark.api.adventure_island import get_adventure_island
+from lostark.api import get_adv enture_island
 
 
 class TwitterBot:
