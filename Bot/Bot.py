@@ -60,7 +60,7 @@ class TwitterBot:
         return media, message
 
     def get_adventure_island_infoes(self):
-        media = get_adventure_island("Bearer " + self.lostark)
+        media = get_adventure_island("Bearer " + self.lostark["api_key"])
 
         return media
 
