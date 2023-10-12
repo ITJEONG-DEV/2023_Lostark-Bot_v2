@@ -103,4 +103,4 @@ class TwitterBot:
         print(response.data)
         print(f"다음의 내용을 트윗합니다.\n{message}, {media.media_id}")
 
-        return response.data.id
+        return response.data["id"]
