@@ -5,7 +5,7 @@ import datetime
 from PIL import Image, ImageDraw, ImageFont
 import requests
 
-from lostark.api.api import get_island_info
+from .request import get_island_info
 
 path = os.path.join(os.path.dirname(os.path.abspath(__file__)))
 
