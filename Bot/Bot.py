@@ -35,7 +35,7 @@ class TwitterBot:
                 self.upload_infoes()
 
     def test(self):
-        self.upload_infoes()
+        self.upload_infoes(test=True)
 
     def get_client(self):
         client = tweepy.Client(
@@ -73,7 +73,7 @@ class TwitterBot:
 
         return media
 
-    def upload_infoes(self):
+    def upload_infoes(self, test=False):
         now = datetime.datetime.now()
         day = now.weekday()
 
@@ -86,7 +86,7 @@ class TwitterBot:
         response = self.post_with_image(client, message, media, None)
 
         # 수요일이면 추가의 정보를 업로드함
-        if day == 2:
+        if day == 2 or test:
             media, message = self.get_weekly_contents_message()
             _ = self.post_with_image(client, message, media, response)
 
