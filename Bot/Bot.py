@@ -78,7 +78,7 @@ class TwitterBot:
             media, message = self.get_weekly_contents_message()
             _ = self.post_with_image(api, message, media, status)
 
-    def post_with_image(self, api, image_path, message, reply_id=None):
+    def post_with_image(self, api, message, image_path, reply_id=None):
         media = api.media_upload(image_path)
 
         status = api.update_status(status=message, media_ids=[media.media_id], in_reply_to_status_id=reply_id)
