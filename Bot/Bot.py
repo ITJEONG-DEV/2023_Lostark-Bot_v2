@@ -46,6 +46,19 @@ class TwitterBot:
         )
         return client
 
+    def get_api(self):
+        auth = tweepy.OAuthHandler(
+            consumer_key=self.data["api_key"],
+            consumer_secret=self.data["api_key_secret"]
+        )
+
+        auth.set_access_token(
+            key=self.data["access_token"],
+            secret=self.data["access_token_secret"]
+        )
+
+        return tweepy.API(auth)
+
     def get_daily_contents_message(self, day):
         return self.daily_message[day]
 
@@ -75,7 +88,8 @@ class TwitterBot:
             _ = self.post_with_image(client, message, media, response)
 
     def post_with_image(self, client, message, image_path, reply_id=None):
-        media = client.media_upload(image_path)
+        api = self.get_api()
+        media = api.media_upload(image_path)
 
         response = client.create_tweet(
             text=message,
