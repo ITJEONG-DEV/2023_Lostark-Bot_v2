@@ -100,8 +100,7 @@ class TwitterBot:
             in_reply_to_tweet_id=reply_id
         )
 
-        print(response.json())
-
+        print(response.data)
         print(f"다음의 내용을 트윗합니다.\n{message}, {media.media_id}")
 
-        return response.json()
+        return response.data
