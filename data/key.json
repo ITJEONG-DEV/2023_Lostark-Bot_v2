@@ -1,0 +1,34 @@
+{
+  "twitter": {
+    "api_key": "bA7RVCYnJ1iO2xpQRtyNYuhez",
+    "api_key_secret": "ylEKCpz1V2Pm6N6IPAioTU8rkBX6asNIRwuiy8mUAudAdpdGGQ",
+    "bearer_token": "AAAAAAAAAAAAAAAAAAAAAPDflQEAAAAA%2BEWhV98%2FOik6MbCPPtMzOI9gWRY%3DNNrrdnX6MptDMqfhrelI3dQRFtmbSKBnlMyQqg0YUuAk8948Od",
+    "access_token": "1568910865642160128-AFDGhx2NL4vBhrJq7dYnYO9hadre9t",
+    "access_token_secret": "tfM2ufJS4WoZaQGj0ynf4DufeWgK9Y7JIS5pjUMBLG72y",
+    "client_id": "NHFPLVZ1alR5R0d4Y3gybjVKS0o6MTpjaQ",
+    "client_secret": "YN15KeFfW8qcfGbKzNAFj7dEg7B6diVdrYvnEiHDx_YKMM_hXr"
+  },
+  "lostark": {
+    "api_key": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IktYMk40TkRDSTJ5NTA5NWpjTWk5TllqY2lyZyIsImtpZCI6IktYMk40TkRDSTJ5NTA5NWpjTWk5TllqY2lyZyJ9.eyJpc3MiOiJodHRwczovL2x1ZHkuZ2FtZS5vbnN0b3ZlLmNvbSIsImF1ZCI6Imh0dHBzOi8vbHVkeS5nYW1lLm9uc3RvdmUuY29tL3Jlc291cmNlcyIsImNsaWVudF9pZCI6IjEwMDAwMDAwMDAwMDA1MTMifQ.KJSweBbQpwz7OcYwY_Fc9FJDmSBL_8y0KqNXKq3KMC6vIgy-Cmsfzi7klAyjIJLGRB2SeW9sq--QbafkIHBeWUVD7jROy8mhLvKlr8vLnGJ5IePGriBtC6IB-Ma6Wr1w4Upa0jwBDE7eRwk6FPX21wrXnalqk-MpYpTBmPp1MmcaNVCoxZliMRsNtfrFrQE0RnceerNsBAoj6blyIt7wH9IB5dHTzLYEDVXBA6rQeS8gBzYzcKC4yWDcHSas6es_JqCykp-w9HdaT20YXZW0te3knRl2VZ3oOsVmCmCoPk3cSHaqaleesmabKnuWPd7sT6FCvdKeuhfCNvMNAze9nA",
+    "except_item": [
+      "섬의 마음",
+      "기념 주머니",
+      "인연의 돌",
+      "강태공의 주머니",
+      "선혈의 조각",
+      "조화로운 소리의 상자",
+      "투명한 소리의 상자",
+      "향기로운 소리의 상자",
+      "소리의 상자",
+      "보물 상자",
+      "비밀 상자",
+      "참가상",
+      "수신 아포라스 카드",
+      "아드린느 카드",
+      "메데이아의 선물",
+      "두근두근 상자",
+      "탈 것",
+      "정령의 선물"
+    ]
+  }
+}
